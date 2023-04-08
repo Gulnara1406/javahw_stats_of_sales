@@ -27,7 +27,7 @@ public class StatsService {
 
     public int minSales(long[] sales) {
         int maxMonth = 0;
-        long min = 10 ^ 22;
+        long min = (long )Math.pow(10,22);
         for (int i = 0; i < sales.length - 1; i++) {
             if (sales[i] <= min) {
                 min = sales[i];
@@ -39,8 +39,9 @@ public class StatsService {
 
     public int monthsSalesUnderAvg(long[] sales) {
         int month = 0;
+        int avgSum = avgSumSales(sales);
         for (int i = 0; i < sales.length; i++) {
-            if (sales[i] < avgSumSales(sales)) {
+            if (sales[i] < avgSum) {
                 month += 1;
             }
 
@@ -50,8 +51,9 @@ public class StatsService {
 
     public int monthsSalesOverAvg(long[] sales) {
         int month = 0;
+        int avgSum = avgSumSales(sales);
         for (int i = 0; i < sales.length; i++) {
-            if (sales[i] > avgSumSales(sales)) {
+            if (sales[i] > avgSum) {
                 month += 1;
             }
         }
